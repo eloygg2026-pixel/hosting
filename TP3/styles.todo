@@ -1,0 +1,35 @@
+// Intercambio de imágenes
+let imagenActual = 1;
+
+function cambiarImagen() {
+  const img = document.getElementById("imagen");
+
+  if (imagenActual === 1) {
+    img.src = "images/foto2.jpg";
+    imagenActual = 2;
+  } else {
+    img.src = "images/foto1.jpg";
+    imagenActual = 1;
+  }
+}
+
+// Cambiar texto desde input
+function cambiarTexto() {
+  const textoUsuario = document.getElementById("textoUsuario").value;
+  document.getElementById("titulo").innerText = textoUsuario;
+}
+
+// Objeto en movimiento
+let posicion = 0;
+
+function moverCuadro() {
+  const cuadro = document.getElementById("cuadro");
+  posicion += 2;
+  cuadro.style.left = posicion + "px";
+
+  if (posicion < 300) {
+    requestAnimationFrame(moverCuadro);
+  }
+}
+
+moverCuadro();
